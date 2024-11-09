@@ -1,23 +1,38 @@
 
-# TypeScript Fundamentals: Key Concepts and Examples
+# TypeScript Fundamentals and Classes: Key Concepts and Examples
 
 This document provides an overview of fundamental TypeScript concepts, including type guards, object manipulation, 
-data validation, and other core functionalities. Each section includes explanations and examples to aid understanding.
+data validation, and class-related functionalities like inheritance, access modifiers, and abstract classes. 
+Each section includes explanations and examples to aid understanding.
 
 ---
 
 ## Table of Contents
 
-- [1. Type Guards](#1-type-guards)
-  - [`typeof` Operator](#typeof-operator)
-  - [`instanceof` Operator](#instanceof-operator)
-  - [`in` Operator](#in-operator)
-- [2. Object Manipulation](#2-object-manipulation)
-- [3. Data Validation](#3-data-validation)
-- [4. Utility Types](#4-utility-types)
+- [TypeScript Fundamentals](#typescript-fundamentals)
+  - [1. Type Guards](#1-type-guards)
+    - [`typeof` Operator](#typeof-operator)
+    - [`instanceof` Operator](#instanceof-operator)
+    - [`in` Operator](#in-operator)
+  - [2. Object Manipulation](#2-object-manipulation)
+  - [3. Data Validation](#3-data-validation)
+  - [4. Utility Types](#4-utility-types)
+- [TypeScript Classes](#typescript-classes)
+  - [1. Defining a Class](#1-defining-a-class)
+  - [2. Constructors](#2-constructors)
+  - [3. Access Modifiers](#3-access-modifiers)
+    - [Public](#public)
+    - [Private](#private)
+    - [Protected](#protected)
+  - [4. Inheritance](#4-inheritance)
+  - [5. Methods](#5-methods)
+  - [6. Getters and Setters](#6-getters-and-setters)
+  - [7. Abstract Classes](#7-abstract-classes)
 - [Overview](#overview)
 
 ---
+
+# TypeScript Fundamentals
 
 ## 1. Type Guards
 
@@ -185,33 +200,10 @@ TypeScript provides utility types like `Partial`, `Readonly`, and `Record` to si
 
 ---
 
-## Overview
+# TypeScript Classes
 
-This document provides an overview of key TypeScript concepts essential for building reliable applications. 
-From type guards and object manipulation to data validation and utility types, these fundamentals help maintain type safety, 
-prevent errors, and improve code readability in TypeScript projects.
-
-
-# TypeScript Classes: Key Concepts and Examples
-
-This document provides an overview of essential TypeScript concepts related to classes, including inheritance, access modifiers, methods, 
-constructors, and other core functionalities. Each section includes explanations and examples to aid understanding.
-
----
-
-## Table of Contents
-
-- [1. Defining a Class](#1-defining-a-class)
-- [2. Constructors](#2-constructors)
-- [3. Access Modifiers](#3-access-modifiers)
-  - [Public](#public)
-  - [Private](#private)
-  - [Protected](#protected)
-- [4. Inheritance](#4-inheritance)
-- [5. Methods](#5-methods)
-- [6. Getters and Setters](#6-getters-and-setters)
-- [7. Abstract Classes](#7-abstract-classes)
-- [Overview](#overview)
+This section provides an overview of essential TypeScript concepts related to classes, including inheritance, access modifiers, methods, 
+constructors, and other core functionalities.
 
 ---
 
