@@ -190,3 +190,279 @@ TypeScript provides utility types like `Partial`, `Readonly`, and `Record` to si
 This document provides an overview of key TypeScript concepts essential for building reliable applications. 
 From type guards and object manipulation to data validation and utility types, these fundamentals help maintain type safety, 
 prevent errors, and improve code readability in TypeScript projects.
+
+
+# TypeScript Classes: Key Concepts and Examples
+
+This document provides an overview of essential TypeScript concepts related to classes, including inheritance, access modifiers, methods, 
+constructors, and other core functionalities. Each section includes explanations and examples to aid understanding.
+
+---
+
+## Table of Contents
+
+- [1. Defining a Class](#1-defining-a-class)
+- [2. Constructors](#2-constructors)
+- [3. Access Modifiers](#3-access-modifiers)
+  - [Public](#public)
+  - [Private](#private)
+  - [Protected](#protected)
+- [4. Inheritance](#4-inheritance)
+- [5. Methods](#5-methods)
+- [6. Getters and Setters](#6-getters-and-setters)
+- [7. Abstract Classes](#7-abstract-classes)
+- [Overview](#overview)
+
+---
+
+## 1. Defining a Class
+
+A class in TypeScript is a blueprint for creating objects with properties and methods. It helps encapsulate related data and behaviors.
+
+### Example:
+
+```typescript
+class Animal {
+    name: string;
+    constructor(name: string) {
+        this.name = name;
+    }
+
+    speak() {
+        console.log(`${this.name} makes a noise.`);
+    }
+}
+```
+
+This example defines a simple `Animal` class with a property `name` and a method `speak()`.
+
+---
+
+## 2. Constructors
+
+The constructor is a special method in TypeScript that gets called when an instance of the class is created. It’s used to initialize the object’s properties.
+
+### Example:
+
+```typescript
+class Person {
+    name: string;
+    age: number;
+
+    constructor(name: string, age: number) {
+        this.name = name;
+        this.age = age;
+    }
+
+    introduce() {
+        return `Hello, I'm ${this.name} and I'm ${this.age} years old.`;
+    }
+}
+
+const person = new Person("Alice", 30);
+person.introduce(); // "Hello, I'm Alice and I'm 30 years old."
+```
+
+The `constructor` initializes the `name` and `age` properties when a new `Person` instance is created.
+
+---
+
+## 3. Access Modifiers
+
+Access modifiers determine the visibility of properties and methods within a class. TypeScript offers three primary modifiers:
+
+### Public
+
+`public` members are accessible from anywhere. By default, all members are `public`.
+
+#### Example:
+
+```typescript
+class Car {
+    public brand: string;
+
+    constructor(brand: string) {
+        this.brand = brand;
+    }
+}
+```
+
+### Private
+
+`private` members are accessible only within the class they are defined in.
+
+#### Example:
+
+```typescript
+class BankAccount {
+    private balance: number = 0;
+
+    deposit(amount: number) {
+        this.balance += amount;
+    }
+
+    getBalance() {
+        return this.balance;
+    }
+}
+```
+
+The `balance` property is private, so it can only be modified through the `deposit` method.
+
+### Protected
+
+`protected` members are accessible within the class and by subclasses but not from outside.
+
+#### Example:
+
+```typescript
+class Employee {
+    protected name: string;
+
+    constructor(name: string) {
+        this.name = name;
+    }
+}
+
+class Manager extends Employee {
+    display() {
+        return `Manager: ${this.name}`;
+    }
+}
+```
+
+The `name` property is protected, so it’s accessible within `Employee` and any class that extends it.
+
+---
+
+## 4. Inheritance
+
+Inheritance allows a class to inherit properties and methods from another class, promoting reusability.
+
+### Example:
+
+```typescript
+class Animal {
+    constructor(public name: string) {}
+
+    move(distance: number) {
+        console.log(`${this.name} moved ${distance} meters.`);
+    }
+}
+
+class Bird extends Animal {
+    fly(distance: number) {
+        console.log(`${this.name} flew ${distance} meters.`);
+    }
+}
+
+const bird = new Bird("Sparrow");
+bird.move(5);
+bird.fly(10);
+```
+
+In this example, `Bird` inherits the `move` method from `Animal` and also defines its own `fly` method.
+
+---
+
+## 5. Methods
+
+Methods are functions defined within a class that can operate on the class’s properties.
+
+### Example:
+
+```typescript
+class Calculator {
+    add(x: number, y: number): number {
+        return x + y;
+    }
+
+    multiply(x: number, y: number): number {
+        return x * y;
+    }
+}
+
+const calc = new Calculator();
+calc.add(2, 3); // 5
+calc.multiply(4, 5); // 20
+```
+
+The `Calculator` class has two methods, `add` and `multiply`, which perform basic arithmetic operations.
+
+---
+
+## 6. Getters and Setters
+
+Getters and setters are special methods that allow controlled access to private properties.
+
+### Example:
+
+```typescript
+class User {
+    private _name: string;
+
+    constructor(name: string) {
+        this._name = name;
+    }
+
+    get name(): string {
+        return this._name;
+    }
+
+    set name(newName: string) {
+        if (newName.length > 0) {
+            this._name = newName;
+        }
+    }
+}
+
+const user = new User("Alice");
+console.log(user.name); // "Alice"
+user.name = "Bob";
+console.log(user.name); // "Bob"
+```
+
+Here, `name` is accessed via a getter, and it can be updated via a setter, adding control over its value.
+
+---
+
+## 7. Abstract Classes
+
+An abstract class cannot be instantiated on its own and serves as a base class for other classes to extend. 
+It can define abstract methods that must be implemented in derived classes.
+
+### Example:
+
+```typescript
+abstract class Shape {
+    abstract area(): number;
+
+    display(): void {
+        console.log("Displaying shape information.");
+    }
+}
+
+class Circle extends Shape {
+    constructor(public radius: number) {
+        super();
+    }
+
+    area(): number {
+        return Math.PI * this.radius ** 2;
+    }
+}
+
+const circle = new Circle(5);
+circle.display(); // "Displaying shape information."
+console.log(circle.area()); // Area of the circle
+```
+
+The `Shape` class is abstract and defines an `area` method that must be implemented by any subclass, such as `Circle`.
+
+---
+
+## Overview
+
+This document provides an overview of TypeScript class fundamentals, covering everything from defining classes and access modifiers 
+to inheritance and abstract classes. By understanding these core concepts, developers can effectively use TypeScript’s class-based 
+object-oriented programming features to create modular, organized, and maintainable code.
